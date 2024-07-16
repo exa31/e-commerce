@@ -19,7 +19,7 @@ const Favorite = () => {
         <div className="bg-gray-300 text-center py-24 px-4">
             <h1 className="text-4xl font-bold">Favorite Products</h1>
             <div className={favoriteProducts.length !== 0 && "grid lg:grid-cols-3 sm:grid-cols-2 2xl:grid-cols-4 gap-10 my-6"}>
-                {!user ? <h1 className="text-2xl text-red-500 text-center font-bold mt-10">Please login first</h1> : favoriteProducts.length === 0 ? <h1 className="text-2xl text-red-500 text-center font-bold mt-10">No favorite products, please your favorite product</h1>
+                {!user ? <h1 className="text-2xl text-red-500 text-center font-bold mt-10">Please login first</h1> : favoriteProducts.length === 0 ? <h1 className="text-2xl text-red-500 text-center font-bold mt-10">No favorite products, please add your favorite product</h1>
                     :
                     favoriteProducts.map((item, index) => {
                         return (
