@@ -36,7 +36,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="flex fixed top-0 z-10 w-full p-2 bg-black justify-between items-center text-center text-lg font-bold">
+            <div className="flex fixed top-0 z-10 w-full py-1 px-4 bg-black justify-between items-center text-center text-lg font-bold">
                 <div>
                     <h1 className="text-white text-4xl">Exa</h1>
                 </div>
@@ -44,12 +44,12 @@ export default function Navbar() {
                     <FontAwesomeIcon onClick={() => setShowNav(!showNav)} className={showNav ? "md:hidden hidden text-white" : "md:hidden text-white"} icon={faBars} />
                     <FontAwesomeIcon onClick={() => setShowNav(!showNav)} className={showNav ? "md:hidden text-white" : "md:hidden hidden text-white"} icon={faXmark} />
                 </div>
-                <div className={showNav ? "flex duration-200 md:block flex-col bg-black w-6/12 md:w-auto h-full md:h-auto fixed md:static top-14 right-0" : "flex md:block flex-col bg-black w-0 md:w-max h-full duration-200 md:h-auto fixed md:static top-14 right-0"}>
+                <div className={showNav ? "flex duration-200 md:block flex-col bg-black w-6/12 md:w-auto h-full md:h-auto fixed text-start md:static top-10 right-0" : "flex md:block flex-col text-center bg-black w-0 md:w-max h-full duration-200 md:h-auto fixed md:static top-10 right-0"}>
                     <NavLink className={({ isActive, isPending }) =>
                         isActive
                             ? "active m-4 duration-200 text-white hover:cursor-default"
                             : isPending
-                                ? "active m-4 duration-200 text-white hover:cursor-default"
+                                ? "active mx-4 duration-200 text-white hover:cursor-default"
                                 : "m-4 duration-200 text-white hover:opacity-70"
                     } to="/">Home</NavLink>
                     <NavLink className={({ isActive, isPending }) =>

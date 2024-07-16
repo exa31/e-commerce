@@ -54,11 +54,11 @@ export default function Login() {
 
 
     return (
-        <div className="h-screen bg-scroll pt-36 bg-no-repeat bg-cover" style={{
+        <div className="h-screen bg-scroll pt-36 p-2 bg-no-repeat bg-cover" style={{
             backgroundImage: `url('https://t4.ftcdn.net/jpg/03/29/57/15/360_F_329571572_i4g25KqbxarqLeyhJdHjXbYsnXCrVzy4.jpg')`
         }}>
             <form onSubmit={handlerSubmit}>
-                <div className="flex text-white w-3/6 mx-auto flex-col rounded-2xl backdrop-blur-2xl items-center border border-slate-600 justify-center">
+                <div className="flex text-white md:w-3/6 mx-auto flex-col rounded-2xl backdrop-blur-2xl items-center border border-slate-600 justify-center">
                     <h1 className="text-4xl font-bold text-center my-10">Login</h1>
                     <div className="flex flex-col w-full px-16 items-center justify-center">
                         <label className="py-3 w-full text-start" htmlFor="username">Username</label>

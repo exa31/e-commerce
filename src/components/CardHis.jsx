@@ -19,21 +19,21 @@ export default function CardHistory({ title, price, index, image, qty, time }) {
 
     console.log(time)
     return (
-        <Animated animationIn="fadeIn" animationInDelay={200 * index} isVisible={true}>
-            <div className="grid rounded-s-xl rounded-e-full  bg-white text-center grid-cols-5 gap-6 p-6 justify-center items-center">
-                <h3 className='font-bold text-xl'>Image</h3>
-                <h3 className='font-bold text-xl'>Title</h3>
-                <h3 className='font-bold text-xl'>Price</h3>
-                <h3 className='font-bold text-xl'>Qty</h3>
-                <h3 className='font-bold text-xl'>Total</h3>
-                <img className="object-contain h-48 w-96" src={image} alt={title} />
-                <h3>{title}</h3>
-                <h5 className="font-bold">Rp{price}</h5>
-                <h5 className='font-boldd'>{qty}</h5>
-                <h5 className='text-center'>Rp{total}</h5>
-                <h5 className='text-center'>{time}</h5>
+        <Animated animationIn="fadeIn" animationInDelay={200 * index} animationOut="fadeOutRight" isVisible={true}>
+            <div className="grid rounded-s-xl rounded-e-full  bg-white text-center grid-cols-3 gap-6 p-6 justify-center items-center">
+                <div className='flex flex-col items-center gap-8'>
+                    <img className="object-contain md:h-48 md:w-96 h-20 w-40" src={image} alt={title} />
+                    <div className='flex gap-2 items-center'>
+                        <h5 className='font-bold text-blue-500'>{qty}</h5>
+                    </div>
+                </div>
+                <div>
+                    <h3>{title}</h3>
+                    <h5 className="font-bold">Rp{price.toFixed(3)}</h5>
+                </div>
+                <h5 className='text-center font-bold'>Rp{total.toFixed(3)}</h5>
+                <h5 className='text-center col-span-3'>{time}</h5>
             </div >
-
         </Animated>
     )
 }

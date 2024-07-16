@@ -58,7 +58,6 @@ export default function CardCart({ title, id, data, price, index, image, qty }) 
     return (
         <>
             <Animated animationIn="fadeIn" animationInDelay={200 * index} animationOut="fadeOutRight" isVisible={out}>
-
                 <div className="grid rounded-s-xl rounded-e-full  bg-white text-center grid-cols-3 gap-6 p-6 justify-center items-center">
                     <div className='flex flex-col items-center gap-8'>
                         <img className="object-contain md:h-48 md:w-96 h-20 w-40" src={image} alt={title} />

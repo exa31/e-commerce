@@ -27,17 +27,21 @@ export default function Product() {
     }
 
     return (
-        <div className="h-screen container m-auto bg-white ">
-            <div className='flex h-full gap-40 p-24 justify-center items-center'>
+        <div className="h-screen container m-auto my-14 bg-white ">
+            <div className='grid grid-cols-2 h-full gap-10 px-6 justify-center items-center'>
                 <div>
-                    <img className='object-contain' src={data.image} alt={data.title} />
+                    <img className='object-contain h-56 sm:h-auto' src={data.image} alt={data.title} />
                 </div>
                 <div>
+                    <h1 className="text-lg sm:text-4xl font-bold" >{data.title}</h1>
                     <p className="font-semibold text-2xl py-4">Rp{data.price.toFixed(3)}</p>
-                    <h1 className="text-4xl font-bold" >{data.title}</h1>
+                </div>
+                <div className='col-span-2'>
                     <p >{data.description}</p>
                     <p className='font-semibold my-4'>⭐{data.rating.rate}</p>
                     <p className='my-4 font-semibold'>{data.rating.count} sold</p>
+                </div>
+                <div className='col-span-2'>
                     <Link to={`/shop`} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 rounded-md font-bold" >Close</Link >
                     <button onClick={() => handleCart()} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 rounded-md mx-10 font-bold" >Add to cart</button>
                 </div>
