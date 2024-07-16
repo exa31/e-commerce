@@ -86,7 +86,6 @@ export default function Shop() {
                         return (
                             <div data-aos="fade-up" data-aos-delay={50 * index} key={item.id} data-aos-anchor-placement="top-bottom">
                                 <Animated animationIn="fadeIn" animationInDelay={50 * index} animationOut="fadeOut" isVisible={true}>
-
                                     <Card favoriteProducts={favoriteProducts} handleCart={handleCart} handleFavorit={handleFavorit} {...item} />
                                 </Animated>
                             </div>

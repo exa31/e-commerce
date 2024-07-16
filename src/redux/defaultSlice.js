@@ -5,8 +5,15 @@ const initialState = {
     favoriteProducts: [],
     login: false,
     cart: [],
+    users: [{
+        username: "eka",
+        password: "eka"
+    }],
     history: []
 };
+
+
+
 
 const defaultSlice = createSlice({
     name: "app",
@@ -44,7 +51,6 @@ const defaultSlice = createSlice({
                 if (state.cart[index].qty === 0) {
                     // Jika qty produk menjadi 0, hapus produk dari keranjang
                     state.cart = state.cart.filter((product) => product.id !== action.payload.id);
-
                 }
             }
         },
@@ -60,12 +66,14 @@ const defaultSlice = createSlice({
             state.cart = state.cart.filter(product => product.id !== action.payload.id)
         },
         addHistory: (state, action) => {
-
             state.history = action.payload
+        },
+        addUser: (state, action) => {
+            state.users.push(action.payload)
         },
     }
 },);
 
 // Menggabungkan ekspor actions
-export const { addFavoriteProduct, clearCart, removeFavoriteProduct, login, logout, addCart, reduceCart, removeCart, addHistory, clearAll } = defaultSlice.actions;
+export const { addFavoriteProduct, clearCart, removeFavoriteProduct, login, logout, addCart, reduceCart, removeCart, addHistory, clearAll, addUser } = defaultSlice.actions;
 export default defaultSlice.reducer;

@@ -9,6 +9,7 @@ import Product from "../pages/product/_id";
 import Checkout from "../pages/Checkout";
 import History from "../pages/History";
 import ErrorPage from "../pages/ErrorPage";
+import Registrasi from "../pages/Registrasi";
 
 export const routes = createBrowserRouter([
     {
@@ -41,12 +42,17 @@ export const routes = createBrowserRouter([
             {
                 path: "history",
                 element: <History />
-            }
+            },
+
         ]
     },
     {
         path: "login",
         element: <Login />
+    },
+    {
+        path: "/login/registrasi",
+        element: <Registrasi />
     }
 ])
 

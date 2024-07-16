@@ -24,11 +24,6 @@ export default function Card({ title, favoriteProducts, handleCart, handleFavori
 
 
     const favoriteProduct = favoriteProducts.some((item) => item.id === id)
-
-
-
-
-
     return (
 
         <div className=" rounded-lg p-2 bg-white flex flex-col">
