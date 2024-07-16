@@ -63,8 +63,8 @@ export default function CardCart({ title, id, data, price, index, image, qty }) 
                         <img className="object-contain md:h-48 md:w-96 h-20 w-40" src={image} alt={title} />
                         <div className='flex gap-2 items-center'>
                             <div className='gap-3 flex flex-col'>
-                                <button onClick={() => handleReduceCart(id)} className='py-1 px-2 font-bold hover:bg-slate-800 bg-black duration-200 transition-all text-white '>➕</button>
-                                <button onClick={() => handleAddCart(id)} className='py-1 px-2 font-bold hover:bg-slate-800 bg-black duration-200 transition-all text-white'>➖</button>
+                                <button onClick={() => handleAddCart(id)} className='py-1 px-2 font-bold hover:bg-slate-800 bg-black duration-200 transition-all text-white'>➕</button>
+                                <button onClick={() => handleReduceCart(id)} className='py-1 px-2 font-bold hover:bg-slate-800 bg-black duration-200 transition-all text-white '>➖</button>
                             </div>
                             <h5 className='font-boldd'>{qty}</h5>
                             <button onClick={() => handleRemoveCart(id)} className='px-2 py-1 font-bold h-min hover:bg-slate-800 bg-black duration-200 transition-all text-white '><FontAwesomeIcon className='text-xs' icon={faTrash} /></button>
