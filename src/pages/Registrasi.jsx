@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux"
 import { addUser } from "../redux/defaultSlice"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Registrasi() {
 
     const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     function handlerSubmit(e) {
         e.preventDefault()
@@ -18,8 +20,10 @@ export default function Registrasi() {
             return alert("Password is not match")
         }
 
-        dispatch(addUser({ username: e.target.username.value, password: e.target.password.value }))
 
+        dispatch(addUser({ username: e.target.username.value, password: e.target.password.value }))
+        navigate("/login")
+        alert("Registrasi Success")
 
     }
 

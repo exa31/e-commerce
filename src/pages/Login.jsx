@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { login } from "../redux/defaultSlice"
 import { Link, useNavigate } from "react-router-dom"
@@ -30,14 +29,9 @@ export default function Login() {
         if (validUser && validPassword) {
             alert("Login Success")
             dispatch(login())
-            return navigate("/shop")
+            return navigate("/")
         }
     }
-
-
-    useEffect(() => {
-
-    }, [])
 
 
 
