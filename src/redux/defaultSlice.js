@@ -23,8 +23,7 @@ const defaultSlice = createSlice({
             state.favoriteProducts.push(action.payload);
         },
         removeFavoriteProduct: (state, action) => {
-            state.favoriteProducts = state.favoriteProducts.filter(
-                (product) => product.id !== action.payload
+            state.favoriteProducts = state.favoriteProducts.filter(product => product._id !== action.payload
             );
         },
         login: (state) => {
@@ -34,7 +33,7 @@ const defaultSlice = createSlice({
             state.login = false;
         },
         addCart: (state, action) => {
-            const index = state.cart.findIndex((product) => product.id === action.payload.id);
+            const index = state.cart.findIndex((product) => product._id === action.payload._id);
             if (index === -1) {
                 // Produk belum ada di keranjang, tambahkan produk dengan qty: 1
                 state.cart.push({ ...action.payload, qty: 1 });
@@ -44,13 +43,13 @@ const defaultSlice = createSlice({
             }
         },
         reduceCart: (state, action) => {
-            const index = state.cart.findIndex((product) => product.id === action.payload.id);
+            const index = state.cart.findIndex((product) => product._id === action.payload._id);
             if (index !== -1) {
                 // Produk ada di keranjang, kurangi qty-nya
                 state.cart[index].qty -= 1;
                 if (state.cart[index].qty === 0) {
                     // Jika qty produk menjadi 0, hapus produk dari keranjang
-                    state.cart = state.cart.filter((product) => product.id !== action.payload.id);
+                    state.cart = state.cart.filter((product) => product._id !== action.payload._id);
                 }
             }
         },
@@ -63,7 +62,7 @@ const defaultSlice = createSlice({
             state.cart = []
         },
         removeCart: (state, action) => {
-            state.cart = state.cart.filter(product => product.id !== action.payload.id)
+            state.cart = state.cart.filter(product => product._id !== action.payload._id)
         },
         addHistory: (state, action) => {
             state.history = action.payload

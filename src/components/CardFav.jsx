@@ -15,12 +15,12 @@ CardFav.propTypes = {
     rating: proptypes.object,
     rate: proptypes.number,
     count: proptypes.number,
-    id: proptypes.number,
+    _id: proptypes.number,
     handleFavorit: proptypes.func,
     index: proptypes.number
 }
 
-export default function CardFav({ title, id, description, index, price, image, rating: { rate, count } }) {
+export default function CardFav({ title, _id, description, index, price, image, rating: { rate, count } }) {
     const favoriteProducts = useSelector((state) => state.defaultSlice.favoriteProducts)
 
     const [out, setOut] = useState(true)
@@ -34,11 +34,11 @@ export default function CardFav({ title, id, description, index, price, image, r
     const dispatch = useDispatch()
 
     function handleCart(id) {
-        const product = favoriteProducts.filter((item) => item.id === id)
+        const product = favoriteProducts.filter((item) => item._id === id)
         return dispatch(addCart(product[0]))
     }
 
-    const favoriteProduct = favoriteProducts.some((item) => item.id === id)
+    const favoriteProduct = favoriteProducts.some((item) => item._id === _id)
 
     return (
         <Animated animationIn="fadeIn" animationInDelay={200 * index} animationOut="fadeOutDown" isVisible={out}>
@@ -47,7 +47,7 @@ export default function CardFav({ title, id, description, index, price, image, r
                 <img className="object-contain mx-auto h-48 w-96" src={image} alt={title} />
                 <div className="flex justify-between">
                     <p className="font-semibold">Rp{price.toFixed(3)}</p>
-                    <FontAwesomeIcon onClick={() => handleFavorit(id)} className={
+                    <FontAwesomeIcon onClick={() => handleFavorit(_id)} className={
                         favoriteProduct ? "text-red-500 hover:cursor-pointer" : "text-gray-500 hover:cursor-pointer"
                     } icon={faHeart} />
                 </div>
@@ -56,7 +56,7 @@ export default function CardFav({ title, id, description, index, price, image, r
                 <p>⭐{rate}</p>
                 <p>{count} sold</p>
                 <div className="mt-auto">
-                    <button onClick={() => handleCart(id)} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 "><FontAwesomeIcon icon={faCartPlus} /></button>
+                    <button onClick={() => handleCart(_id)} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 "><FontAwesomeIcon icon={faCartPlus} /></button>
                 </div>
             </div>
         </Animated>

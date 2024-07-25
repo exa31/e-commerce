@@ -25,12 +25,12 @@ export default function CardCart({ title, id, data, price, index, image, qty }) 
     const [out, setOut] = useState(true)
 
     function handleAddCart(id) {
-        const product = data.filter((item) => item.id === id)
+        const product = data.filter((item) => item._id === id)
         dispatch(addCart(product[0]))
     }
 
     function handleReduceCart(id) {
-        const product = data.filter((item) => item.id === id)
+        const product = data.filter((item) => item._id === id)
 
         if (qty === 1) {
             setOut(false)
@@ -45,7 +45,7 @@ export default function CardCart({ title, id, data, price, index, image, qty }) 
     }
 
     function handleRemoveCart(id) {
-        const product = data.filter((item) => item.id === id)
+        const product = data.filter((item) => item._id === id)
 
         setOut(false)
 

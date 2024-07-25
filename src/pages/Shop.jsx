@@ -22,9 +22,8 @@ export default function Shop() {
 
     const dispatch = useDispatch()
 
-
     function handleCart(id) {
-        const product = data.filter((item) => item.id === id)
+        const product = data.filter((item) => item._id === id)
         return dispatch(addCart(product[0]))
     }
 
@@ -43,18 +42,15 @@ export default function Shop() {
             setLoading(false)
             setData(filteredData)
         }, 1000)
-
-
     }
 
-
     function handleFavorit(id) {
-        const isExist = favoriteProducts.some((item) => item.id === id)
+        const isExist = favoriteProducts.some((item) => item._id === id)
         if (isExist) {
             dispatch(removeFavoriteProduct(id))
             return
         } else {
-            const product = data.filter((item) => item.id === id)
+            const product = data.filter((item) => item._id === id)
             dispatch(addFavoriteProduct(product[0]))
         }
     }
@@ -84,7 +80,7 @@ export default function Shop() {
 
                     {data.map((item, index) => {
                         return (
-                            <div data-aos="fade-up" data-aos-delay={50 * index} key={item.id} data-aos-anchor-placement="top-bottom">
+                            <div data-aos="fade-up" data-aos-delay={5 * index} key={item._id} data-aos-anchor-placement="top-bottom">
                                 <Animated animationIn="fadeIn" animationInDelay={50 * index} animationOut="fadeOut" isVisible={true}>
                                     <Card favoriteProducts={favoriteProducts} handleCart={handleCart} handleFavorit={handleFavorit} {...item} />
                                 </Animated>

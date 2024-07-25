@@ -23,9 +23,9 @@ const Favorite = () => {
                     :
                     favoriteProducts.map((item, index) => {
                         return (
-                            <div data-aos={"fade-up"} data-aos-delay={50 * index} key={item.id} data-aos-anchor-placement={"top-bottom"}>
-                                <Animated key={item.id} index={index} animationIn="fadeIn" animationInDelay={100 * index} animationOut="fadeOut" isVisible={true}>
-                                    <CardFav key={item.id}  {...item} />
+                            <div data-aos={"fade-up"} data-aos-delay={5 * index} key={item._id} data-aos-anchor-placement={"top-bottom"}>
+                                <Animated key={item._id} index={index} animationIn="fadeIn" animationInDelay={5 * index} animationOut="fadeOut" isVisible={true}>
+                                    <CardFav key={item._id}  {...item} />
                                 </Animated>
                             </div>
                         )
