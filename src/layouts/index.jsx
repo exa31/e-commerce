@@ -1,6 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Logout from "../pages/Logout";
+import Logout from "../pages/login/Logout";
 import { useState } from "react";
 import { clearAll, logout } from "../redux/defaultSlice";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Navbar() {
+
+    const [showNav, setShowNav] = useState(false)
+
+    const [isLogout, setIsLogout] = useState(false)
 
     const user = useSelector((state) => state.defaultSlice.login)
     const cart = useSelector((state) => state.defaultSlice.cart)
@@ -30,9 +34,6 @@ export default function Navbar() {
         setIsLogout(!isLogout)
     }
 
-    const [showNav, setShowNav] = useState(false)
-
-    const [isLogout, setIsLogout] = useState(false)
 
     return (
         <>
@@ -78,10 +79,14 @@ export default function Navbar() {
                             ? "active m-4 duration-200 text-white  hover:cursor-default" : isPending
                                 ? "active m-4 duration-200 text-white hover:cursor-default"
                                 : "m-4 duration-200 text-white hover:opacity-70"
-                    } to={user ? "/history" : "/login"}>History</NavLink>
+                    } to={user ? "/history" : "/login"}>History
+                    </NavLink>
                     <div className="md:hidden">
                         {user ?
-                            <button onClick={handleClick} to="/logout" className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2">Logout</button>
+                            <>
+                                <button className="py-2 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2" ><Link className="px-4 py-4" to="/dashboard/products">To Dashboard</Link></button>
+                                <button onClick={handleClick} to="/logout" className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2">Logout</button>
+                            </>
                             :
                             <>
                                 <NavLink className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2" to="/login">Login</NavLink>
@@ -91,7 +96,10 @@ export default function Navbar() {
                 </div>
                 <div className="md:block hidden">
                     {user ?
-                        <button onClick={handleClick} to="/logout" className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2">Logout</button>
+                        <>
+                            <button className="py-2 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2" ><Link className="px-4 py-4" to="/dashboard/products">To Dashboard</Link></button>
+                            <button onClick={handleClick} className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2">Logout</button>
+                        </>
                         :
                         <>
                             <NavLink className="py-2 px-6 m-2 hover:bg-slate-800 bg-black duration-200 transition-all text-white border-2" to="/login">Login</NavLink>

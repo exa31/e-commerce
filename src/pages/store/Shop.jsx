@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom"
-import Card from "../components/Card"
+import Card from "../../components/Card"
 import { useDispatch, useSelector } from "react-redux"
-import { addCart, addFavoriteProduct, removeFavoriteProduct } from "../redux/defaultSlice"
+import { addCart, addFavoriteProduct, removeFavoriteProduct } from "../../redux/defaultSlice"
 import { Animated } from 'react-animated-css'
 import 'aos/dist/aos.css';
 import AOS from 'aos';

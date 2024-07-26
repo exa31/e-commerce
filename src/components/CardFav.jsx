@@ -38,18 +38,15 @@ export default function CardFav({ title, _id, description, index, price, image, 
         return dispatch(addCart(product[0]))
     }
 
-    const favoriteProduct = favoriteProducts.some((item) => item._id === _id)
 
     return (
         <Animated animationIn="fadeIn" animationInDelay={200 * index} animationOut="fadeOutDown" isVisible={out}>
-
             <div className="h-full rounded-lg p-4 bg-white flex flex-col">
                 <img className="object-contain mx-auto h-48 w-96" src={image} alt={title} />
                 <div className="flex justify-between">
                     <p className="font-semibold">Rp{price.toFixed(3)}</p>
-                    <FontAwesomeIcon onClick={() => handleFavorit(_id)} className={
-                        favoriteProduct ? "text-red-500 hover:cursor-pointer" : "text-gray-500 hover:cursor-pointer"
-                    } icon={faHeart} />
+                    <FontAwesomeIcon onClick={() => handleFavorit(_id)} className="text-red-500 hover:cursor-pointer "
+                        icon={faHeart} />
                 </div>
                 <h1 className="text-2xl font-bold" >{title}</h1>
                 <p >{description}</p>

@@ -1,15 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import LandingPage from "../pages";
-import Navbar from "../layouts/Navbar";
-import Shop from "../pages/Shop";
+import LandingPage from "../pages/store";
+import Navbar from "../layouts/index";
+import Shop from "../pages/store/Shop";
 import data, { getSingleData } from "../apis";
-import Login from "../pages/Login";
-import Favorite from "../pages/Favorite";
-import Product from "../pages/product/_id";
-import Checkout from "../pages/Checkout";
-import History from "../pages/History";
+import Login from "../pages/login/Login";
+import Favorite from "../pages/store/Favorite";
+import Product from "../pages/store/product/_id";
+import Checkout from "../pages/store/Checkout";
+import History from "../pages/store/History";
 import ErrorPage from "../pages/ErrorPage";
-import Registrasi from "../pages/Registrasi";
+import Registrasi from "../pages/login/Registrasi";
+import DashBoard from '../pages/dashboard/index';
+import DashBoardLayout from "../layouts/DashboardLayout";
+import Edit from "../pages/dashboard/Edit";
+import AddProduct from "../pages/dashboard/AddProduct";
 
 export const routes = createBrowserRouter([
     {
@@ -27,7 +31,7 @@ export const routes = createBrowserRouter([
                 loader: data,
             },
             {
-                path: "/shop/:id",
+                path: "shop/:id",
                 element: <Product />,
                 loader: getSingleData
             },
@@ -47,12 +51,35 @@ export const routes = createBrowserRouter([
         ]
     },
     {
-        path: "login",
+        path: "/login",
         element: <Login />
     },
     {
         path: "/login/registrasi",
         element: <Registrasi />
+    },
+    {
+        path: '/dashboard',
+        element: <DashBoardLayout />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: 'products',
+                element: <DashBoard />,
+                loader: data,
+            },
+            {
+                path: 'products/edit/:id',
+                element: <Edit />,
+                loader: getSingleData
+            },
+            {
+                path: 'addproduct',
+                element: <AddProduct />,
+            }
+        ]
     }
+
+
 ])
 

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import CardHistory from "../components/CardHis"
+import CardHistory from "../../components/CardHis"
 
 export default function History() {
 

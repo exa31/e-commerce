@@ -1,7 +1,7 @@
 import proptypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link, useLoaderData } from 'react-router-dom';
-import { addCart } from '../../redux/defaultSlice';
+import { addCart } from '../../../redux/defaultSlice';
 
 Product.propTypes = {
     data: proptypes.array,
@@ -28,9 +28,8 @@ export default function Product() {
 
     return (
         <div className="h-screen container m-auto my-14 bg-white ">
-            <div className='flex items-center justify-center flex-col h-screen'>
-
-                <div className='flex px-6 py-2 justify-center items-center'>
+            <div className='flex px-6 justify-center flex-col h-screen'>
+                <div className='flex px-6 py-2 gap-10 justify-between items-center'>
                     <div>
                         <img className='object-contain h-72' src={data.image} alt={data.title} />
                     </div>
@@ -39,7 +38,8 @@ export default function Product() {
                         <p className="font-semibold text-2xl ">Rp{data.price.toFixed(3)}</p>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='px-6 text-start'>
+                    <h4 className='text-2xl font-bold'>{data.category}</h4>
                     <p className='text-lg'>{data.description}</p>
                     <p className='font-semibold text-lg my-4'>⭐{data.rating.rate}</p>
                     <p className='my-4 text-lg font-semibold'>{data.rating.count} sold</p>

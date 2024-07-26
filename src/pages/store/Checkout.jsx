@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import CardCart from "../components/CardCart"
+import CardCart from "../../components/CardCart"
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from "react";
-import { addHistory, clearCart } from "../redux/defaultSlice";
+import { addHistory, clearCart } from "../../redux/defaultSlice";
 import { Link } from "react-router-dom";
 
 export default function Checkout() {

@@ -1,4 +1,4 @@
-import CardFav from "../components/CardFav";
+import CardFav from "../../components/CardFav";
 import { Animated } from "react-animated-css";
 import 'aos/dist/aos.css';
 import AOS from 'aos';

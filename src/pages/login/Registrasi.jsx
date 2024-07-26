@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addUser } from "../redux/defaultSlice"
+import { addUser } from "../../redux/defaultSlice"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Registrasi() {

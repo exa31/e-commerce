@@ -15,7 +15,7 @@ export default function LandingPage() {
                 <div className="text-center text-white">
                     <h1 className="text-5xl font-bold">Welcome to Exa</h1>
                     <p className="text-xl">The best place to shop</p>
-                    <button onClick={() => navigate(user ? "/Shop" : "/login")} className="  py-3 px-6 bg-white opacity-85 rounded-md text-black font-bold my-12 hover:opacity-40 duration-200 ">Go shop</button>
+                    <button onClick={() => navigate(user ? "/shop" : "/login")} className="  py-3 px-6 bg-white opacity-85 rounded-md text-black font-bold my-12 hover:opacity-40 duration-200 ">Go shop</button>
                 </div>
             </div>
         </div >
