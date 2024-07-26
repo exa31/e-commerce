@@ -22,7 +22,7 @@ export default function Edit() {
             }
         ).then((res) => {
             console.log(res)
-            navigate('/dashboard')
+            navigate('/dashboard/products')
         }).catch((err) => {
             console.log(err)
         })
@@ -51,7 +51,7 @@ export default function Edit() {
                 </div>
                 <div className="flex gap-8">
                     <Link to={'/dashboard'} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3" type="button" >Back</Link>
-                    <button className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 " type="submit">Submit</button>
+                    <button className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 " type="submit">Change</button>
                 </div>
             </form>
         </div>
