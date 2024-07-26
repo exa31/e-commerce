@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom"
 export default function AddProduct() {
 
     const [image, setImage] = useState('')
+    const [submit, setSubmit] = useState(false)
 
     const navigate = useNavigate()
 
     function onSubmit(e) {
         e.preventDefault()
+        setSubmit(!submit)
         const title = e.target.title.value
         const category = e.target.category.value
         const price = e.target.price.value
@@ -23,11 +25,13 @@ export default function AddProduct() {
                 description,
                 image
             }
-        ).then((res) => {
-            console.log(res)
+        ).then(() => {
+            alert('Success')
             navigate('/dashboard/products')
         }).catch((err) => {
             console.log(err)
+        }).finally(() => {
+            setSubmit(!submit)
         })
     }
 
@@ -58,10 +62,10 @@ export default function AddProduct() {
                 </div>
                 <div className="flex gap-8">
                     <Link to={'/dashboard'} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3" type="button" >Back</Link>
-                    <button className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 " type="submit">Submit</button>
+                    <button className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 " disabled={submit} type="submit">Submit</button>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }
 
