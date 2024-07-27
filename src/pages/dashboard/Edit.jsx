@@ -50,7 +50,7 @@ export default function Edit() {
                     <img className="object-contain  h-48 w-64" src={data.image} alt="" />
                 </div>
                 <div className="flex gap-8">
-                    <Link to={'/dashboard'} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3" type="button" >Back</Link>
+                    <Link to={'/dashboard/products'} className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3" type="button" >Back</Link>
                     <button className="bg-cyan-400 py-2 px-6 hover:bg-cyan-300 duration-200 font-bold rounded-md my-3 " type="submit">Change</button>
                 </div>
             </form>
